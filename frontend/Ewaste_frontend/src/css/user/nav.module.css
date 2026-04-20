@@ -1,0 +1,437 @@
+/* ── Nav ── */
+.navWrapper {
+  position: fixed;
+  top: 0; left: 0; right: 0;
+  z-index: 100;
+  transition: transform 0.35s ease;
+  background: rgba(8, 12, 16, 0.85);
+  backdrop-filter: blur(12px);
+  border-bottom: 1px solid rgba(255,255,255,0.06);
+}
+
+.nav {
+  padding: 18px 48px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 32px;
+}
+
+/* Logo */
+.navLogo {
+  font-family: 'Syne', sans-serif;
+  font-weight: 800;
+  font-size: 1.15rem;
+  letter-spacing: -0.02em;
+  color: #00ffa3;
+  text-decoration: none;
+  flex-shrink: 0;
+}
+
+.navLogo span {
+  color: #e8f0ef;
+}
+
+/* Links */
+.navLinks {
+  display: flex;
+  align-items: center;
+  gap: 36px;
+}
+
+.navLink {
+  font-size: 0.82rem;
+  font-weight: 500;
+  letter-spacing: 0.04em;
+  color: #5a7070;
+  text-decoration: none;
+  transition: color 0.2s;
+  white-space: nowrap;
+}
+
+.navLink:hover {
+  color: #e8f0ef;
+}
+
+/* Actions */
+.navActions {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex-shrink: 0;
+}
+
+.iconBtn {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 38px;
+  height: 38px;
+  border-radius: 10px;
+  color: #5a7070;
+  text-decoration: none;
+  transition: color 0.2s, background 0.2s;
+}
+
+.iconBtn:hover {
+  color: #00ffa3;
+  background: rgba(0,255,163,0.07);
+}
+
+.cartBadge {
+  position: absolute;
+  top: 4px;
+  right: 4px;
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  background: #00ffa3;
+  color: #080c10;
+  font-size: 0.6rem;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  line-height: 1;
+}
+
+@media (max-width: 768px) {
+  .nav { padding: 16px 20px; }
+  .navLinks { gap: 20px; }
+  .navLink { font-size: 0.78rem; }
+}
+
+@media (max-width: 560px) {
+  .navLinks { display: none; }
+}
+
+/* ── Login / Logout buttons ── */
+.loginBtn {
+  padding: 8px 18px;
+  border-radius: 10px;
+  border: 1px solid rgba(255,255,255,0.08);
+  background: none;
+  color: #5a7070;
+  font-family: inherit;
+  font-size: 0.78rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.2s;
+  white-space: nowrap;
+}
+
+.loginBtn:hover {
+  color: #e8f0ef;
+  border-color: rgba(255,255,255,0.18);
+}
+
+.signupBtn {
+  padding: 8px 18px;
+  border-radius: 10px;
+  border: 1px solid rgba(0,255,163,0.3);
+  background: rgba(0,255,163,0.07);
+  color: #00ffa3;
+  font-family: 'Syne', sans-serif;
+  font-size: 0.78rem;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  cursor: pointer;
+  transition: all 0.2s;
+  white-space: nowrap;
+}
+
+.signupBtn:hover {
+  background: rgba(0,255,163,0.14);
+  border-color: rgba(0,255,163,0.5);
+  box-shadow: 0 0 20px rgba(0,255,163,0.15);
+}
+
+.logoutBtn {
+  padding: 8px 18px;
+  border-radius: 10px;
+  border: 1px solid rgba(255,255,255,0.08);
+  background: none;
+  color: #5a7070;
+  font-family: inherit;
+  font-size: 0.78rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.2s;
+  white-space: nowrap;
+}
+
+.logoutBtn:hover {
+  color: #e8f0ef;
+  border-color: rgba(255,255,255,0.18);
+}
+
+/* ── Modal tabs ── */
+.modalTabs {
+  display: flex;
+  background: #080c10;
+  border: 1px solid rgba(255,255,255,0.07);
+  border-radius: 12px;
+  padding: 4px;
+  margin-bottom: 24px;
+}
+
+.modalTab {
+  flex: 1;
+  padding: 9px;
+  border-radius: 9px;
+  border: none;
+  background: none;
+  color: #5a7070;
+  font-family: 'Syne', sans-serif;
+  font-size: 0.8rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s;
+  letter-spacing: 0.03em;
+}
+
+.modalTabActive {
+  background: #0e1520;
+  color: #e8f0ef;
+  border: 1px solid rgba(255,255,255,0.08);
+}
+
+.modalTab:not(.modalTabActive):hover { color: #e8f0ef; }
+
+/* ── Modal animated body ── */
+.modalBody {
+  animation: tabSwitch 0.3s ease;
+}
+
+@keyframes tabSwitch {
+  from { opacity: 0; transform: translateY(16px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+/* ── Modal overlay ── */
+.overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 999;
+  background: rgba(0,0,0,0.7);
+  backdrop-filter: blur(6px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+  animation: fadeIn 0.18s ease;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+
+/* ── Modal box ── */
+.modal {
+  position: relative;
+  width: 100%;
+  max-width: 420px;
+  background: #0e1520;
+  border: 1px solid rgba(255,255,255,0.08);
+  border-radius: 24px;
+  padding: 40px 36px 36px;
+  overflow: hidden;
+  animation: slideUp 0.22s ease;
+}
+
+@keyframes slideUp {
+  from { opacity: 0; transform: translateY(20px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+.modalGlow {
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(ellipse 70% 50% at 50% 0%, rgba(0,255,163,0.06) 0%, transparent 65%);
+  pointer-events: none;
+}
+
+.modalClose {
+  position: absolute;
+  top: 16px;
+  right: 16px;
+  width: 32px;
+  height: 32px;
+  border-radius: 8px;
+  border: 1px solid rgba(255,255,255,0.07);
+  background: rgba(255,255,255,0.03);
+  color: #5a7070;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.modalClose:hover { color: #e8f0ef; background: rgba(255,255,255,0.07); }
+
+.modalEyebrow {
+  font-size: 0.62rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: #00ffa3;
+  margin: 0 0 12px;
+}
+
+.modalTitle {
+  font-family: 'Syne', sans-serif;
+  font-size: 1.6rem;
+  font-weight: 800;
+  letter-spacing: -0.03em;
+  color: #e8f0ef;
+  margin: 0 0 6px;
+}
+
+.modalSub {
+  font-size: 0.82rem;
+  color: #5a7070;
+  margin: 0 0 28px;
+}
+
+.modalForm {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.fieldGroup {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.fieldLabel {
+  font-size: 0.65rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: #3a5050;
+}
+
+.fieldInput {
+  background: #080c10;
+  border: 1px solid rgba(255,255,255,0.08);
+  border-radius: 10px;
+  padding: 12px 14px;
+  color: #e8f0ef;
+  font-size: 0.88rem;
+  font-family: inherit;
+  outline: none;
+  transition: border-color 0.2s;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.fieldInput:focus { border-color: rgba(0,255,163,0.4); }
+.fieldInput::placeholder { color: rgba(255,255,255,0.15); }
+
+.errorMsg {
+  font-size: 0.78rem;
+  color: #f472b6;
+  margin: 0;
+  padding: 10px 14px;
+  background: rgba(244,114,182,0.06);
+  border: 1px solid rgba(244,114,182,0.15);
+  border-radius: 8px;
+}
+
+.submitBtn {
+  margin-top: 4px;
+  padding: 13px;
+  border-radius: 12px;
+  border: none;
+  background: #00ffa3;
+  color: #050a06;
+  font-family: 'Syne', sans-serif;
+  font-size: 0.88rem;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.submitBtn:hover {
+  background: #00e090;
+  box-shadow: 0 0 28px rgba(0,255,163,0.3);
+}
+
+.switchText {
+  margin: 20px 0 0;
+  font-size: 0.8rem;
+  color: #5a7070;
+  text-align: center;
+}
+
+.switchBtn {
+  background: none;
+  border: none;
+  color: #00ffa3;
+  font-size: 0.8rem;
+  font-weight: 600;
+  cursor: pointer;
+  padding: 0;
+  transition: opacity 0.2s;
+}
+
+.switchBtn:hover { opacity: 0.75; }
+
+/* ── Logout confirm ── */
+.logoutIcon {
+  width: 52px;
+  height: 52px;
+  border-radius: 14px;
+  background: rgba(244,114,182,0.07);
+  border: 1px solid rgba(244,114,182,0.18);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #f472b6;
+}
+
+.logoutBtns {
+  display: flex;
+  gap: 10px;
+  margin-top: 24px;
+}
+
+.logoutCancelBtn {
+  flex: 1;
+  padding: 11px;
+  border-radius: 10px;
+  border: 1px solid rgba(255,255,255,0.08);
+  background: none;
+  color: #5a7070;
+  font-family: inherit;
+  font-size: 0.85rem;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.logoutCancelBtn:hover { color: #e8f0ef; border-color: rgba(255,255,255,0.18); }
+
+.logoutConfirmBtn {
+  flex: 1;
+  padding: 11px;
+  border-radius: 10px;
+  border: 1px solid rgba(244,114,182,0.3);
+  background: rgba(244,114,182,0.08);
+  color: #f472b6;
+  font-family: 'Syne', sans-serif;
+  font-size: 0.85rem;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.logoutConfirmBtn:hover { background: rgba(244,114,182,0.15); border-color: rgba(244,114,182,0.5); }
+
+@media (max-width: 480px) {
+  .modal { padding: 32px 20px 28px; border-radius: 18px; }
+  .loginBtn, .logoutBtn, .signupBtn { font-size: 0.72rem; padding: 7px 12px; }
+}

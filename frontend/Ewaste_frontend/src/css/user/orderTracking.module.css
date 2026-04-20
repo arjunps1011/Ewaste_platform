@@ -1,0 +1,348 @@
+/* orderTracking.module.css */
+
+.page {
+  background: #080c10;
+  min-height: 100vh;
+  color: #e8f0ef;
+}
+
+.wrapper {
+  max-width: 960px;
+  margin: 0 auto;
+  padding: 100px 24px 80px;
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+/* ── Back link ── */
+.back {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 0.82rem;
+  color: #5a7070;
+  text-decoration: none;
+  transition: color 0.2s;
+  width: fit-content;
+}
+
+.back:hover { color: #e8f0ef; }
+
+/* ── Header ── */
+.header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 20px;
+}
+
+.eyebrow {
+  font-size: 0.65rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: #5a7070;
+  margin: 0 0 8px;
+}
+
+.title {
+  font-family: 'Syne', sans-serif;
+  font-size: clamp(1.4rem, 3vw, 1.9rem);
+  font-weight: 800;
+  letter-spacing: -0.03em;
+  color: #e8f0ef;
+  margin: 0 0 6px;
+}
+
+.sub {
+  font-size: 0.82rem;
+  color: #5a7070;
+  margin: 0;
+}
+
+.headerRight {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 8px;
+  flex-shrink: 0;
+}
+
+.statusPill {
+  padding: 5px 14px;
+  border-radius: 100px;
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+}
+
+.eta {
+  font-size: 0.78rem;
+  color: #5a7070;
+  margin: 0;
+  text-align: right;
+}
+
+/* ── Body layout ── */
+.body {
+  display: grid;
+  grid-template-columns: 1fr 300px;
+  gap: 20px;
+  align-items: start;
+}
+
+/* ── Card ── */
+.card {
+  background: #0e1520;
+  border: 1px solid rgba(255,255,255,0.07);
+  border-radius: 20px;
+  padding: 28px 32px;
+}
+
+.cardTitle {
+  font-family: 'Syne', sans-serif;
+  font-size: 0.88rem;
+  font-weight: 700;
+  color: #e8f0ef;
+  margin: 0 0 24px;
+  letter-spacing: -0.01em;
+}
+
+/* ── Progress bar ── */
+.progressWrap {
+  position: relative;
+  margin-bottom: 32px;
+}
+
+.progressBg {
+  height: 3px;
+  background: rgba(255,255,255,0.06);
+  border-radius: 100px;
+  overflow: hidden;
+}
+
+.progressFill {
+  height: 100%;
+  background: linear-gradient(90deg, #00ffa3, #00c8ff);
+  border-radius: 100px;
+  transition: width 0.8s ease;
+  box-shadow: 0 0 10px rgba(0,255,163,0.4);
+}
+
+.progressDots {
+  position: absolute;
+  top: 50%;
+  left: 0;
+  right: 0;
+  transform: translateY(-50%);
+  display: flex;
+  justify-content: space-between;
+  pointer-events: none;
+}
+
+.progressDot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: #0e1520;
+  border: 2px solid rgba(255,255,255,0.1);
+  transition: all 0.3s;
+}
+
+.progressDotDone {
+  background: #00ffa3;
+  border-color: #00ffa3;
+  box-shadow: 0 0 8px rgba(0,255,163,0.5);
+}
+
+/* ── Steps ── */
+.steps {
+  display: flex;
+  flex-direction: column;
+}
+
+.step {
+  display: flex;
+  gap: 16px;
+}
+
+.stepPending .stepLabel { color: #3a5050; }
+.stepPending .stepDesc  { color: #2a3a3a; }
+.stepPending .stepDate  { color: #2a3a3a; }
+
+.stepLeft {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  flex-shrink: 0;
+  width: 24px;
+}
+
+.stepDot {
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  border: 2px solid rgba(255,255,255,0.08);
+  background: #080c10;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  color: #080c10;
+  transition: all 0.3s;
+}
+
+.stepDotDone {
+  background: #00ffa3;
+  border-color: #00ffa3;
+  box-shadow: 0 0 10px rgba(0,255,163,0.35);
+}
+
+.stepDotActive {
+  background: #00ffa3;
+  border-color: #00ffa3;
+  box-shadow: 0 0 16px rgba(0,255,163,0.6);
+  animation: pulse 2s ease-in-out infinite;
+}
+
+@keyframes pulse {
+  0%, 100% { box-shadow: 0 0 10px rgba(0,255,163,0.4); }
+  50%       { box-shadow: 0 0 22px rgba(0,255,163,0.8); }
+}
+
+.stepLine {
+  width: 2px;
+  flex: 1;
+  min-height: 28px;
+  background: rgba(255,255,255,0.06);
+  margin: 4px 0;
+  border-radius: 1px;
+}
+
+.stepLineDone {
+  background: linear-gradient(to bottom, #00ffa3, rgba(0,255,163,0.3));
+}
+
+.stepBody {
+  padding-bottom: 24px;
+  flex: 1;
+}
+
+.step:last-child .stepBody { padding-bottom: 0; }
+
+.stepTop {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 4px;
+}
+
+.stepLabel {
+  font-size: 0.88rem;
+  font-weight: 600;
+  color: #e8f0ef;
+  transition: color 0.2s;
+}
+
+.stepDate {
+  font-size: 0.72rem;
+  color: #5a7070;
+}
+
+.stepDesc {
+  font-size: 0.78rem;
+  color: #5a7070;
+  margin: 0;
+  line-height: 1.5;
+}
+
+/* ── Side column ── */
+.sideCol {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+/* ── Summary rows ── */
+.summaryRows {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+}
+
+.summaryRow {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 11px 0;
+  border-bottom: 1px solid rgba(255,255,255,0.04);
+  gap: 12px;
+}
+
+.summaryRow:last-child { border-bottom: none; }
+
+.summaryLabel {
+  font-size: 0.75rem;
+  color: #5a7070;
+  flex-shrink: 0;
+}
+
+.summaryVal {
+  font-size: 0.82rem;
+  color: #e8f0ef;
+  text-align: right;
+  word-break: break-all;
+}
+
+/* ── Address ── */
+.addressBox {
+  display: flex;
+  gap: 12px;
+  align-items: flex-start;
+}
+
+.addressText {
+  font-size: 0.82rem;
+  color: #e8f0ef;
+  margin: 0;
+  line-height: 1.6;
+}
+
+/* ── Not found ── */
+.notFound {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 60vh;
+  gap: 16px;
+}
+
+.notFoundTitle {
+  font-family: 'Syne', sans-serif;
+  font-size: 1.2rem;
+  font-weight: 700;
+  color: #5a7070;
+  margin: 0;
+}
+
+.backLink {
+  font-size: 0.82rem;
+  color: #00ffa3;
+  text-decoration: none;
+}
+
+/* ── Responsive ── */
+@media (max-width: 720px) {
+  .body { grid-template-columns: 1fr; }
+  .header { flex-direction: column; gap: 14px; }
+  .headerRight { align-items: flex-start; }
+  .eta { text-align: left; }
+  .wrapper { padding: 88px 16px 60px; }
+  .card { padding: 20px 18px; }
+}
+
+@media (max-width: 480px) {
+  .stepTop { flex-direction: column; align-items: flex-start; gap: 2px; }
+  .stepDate { font-size: 0.68rem; }
+}

@@ -1,0 +1,521 @@
+.wrapper {
+  --bg:      #080c10;
+  --surface: #0e1520;
+  --border:  rgba(255,255,255,0.06);
+  --accent:  #00ffa3;
+  --text:    #e8f0ef;
+  --muted:   #5a7070;
+
+  color: var(--text);
+  background: var(--bg);
+}
+
+/* ── Shared section base ── */
+.section {
+  background: var(--bg);
+  padding: 100px 24px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 48px;
+  border-top: 1px solid var(--border);
+}
+
+.eyebrow {
+  font-size: 0.7rem;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--accent);
+  margin: 0;
+}
+
+.sectionTitle {
+  font-family: 'Syne', sans-serif;
+  font-size: clamp(1.8rem, 4vw, 3rem);
+  font-weight: 800;
+  letter-spacing: -0.03em;
+  color: var(--text);
+  text-align: center;
+  margin: 0;
+  line-height: 1.1;
+}
+
+.sectionTitle em {
+  color: var(--accent);
+  font-style: normal;
+}
+
+/* ── Shared card text ── */
+.cardTag {
+  font-size: 0.65rem;
+  font-weight: 800;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--accent);
+  opacity: 0.6;
+}
+
+.cardTitle {
+  font-family: 'Syne', sans-serif;
+  font-size: 1.05rem;
+  font-weight: 700;
+  color: var(--text);
+  letter-spacing: -0.01em;
+}
+
+.cardDesc {
+  font-size: 0.85rem;
+  color: var(--muted);
+  line-height: 1.7;
+}
+
+/* ── 1. Hero ── */
+.heroSection {
+  min-height: 100vh;
+  background: var(--bg);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 48px;
+  padding: 140px 24px 80px;
+  text-align: center;
+  position: relative;
+}
+
+.heroSection::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(ellipse 80% 60% at 50% 40%, rgba(0,200,130,0.06) 0%, transparent 70%);
+  pointer-events: none;
+}
+
+.heroSection::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-image:
+    linear-gradient(rgba(255,255,255,0.018) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255,255,255,0.018) 1px, transparent 1px);
+  background-size: 60px 60px;
+  pointer-events: none;
+}
+
+.heroInner {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+  position: relative;
+  z-index: 2;
+}
+
+.heroTitle {
+  font-family: 'Syne', sans-serif;
+  font-size: clamp(2.4rem, 5.5vw, 4.8rem);
+  font-weight: 800;
+  letter-spacing: -0.03em;
+  color: var(--text);
+  line-height: 1.05;
+  margin: 0;
+}
+
+.heroTitle em {
+  color: var(--accent);
+  font-style: normal;
+}
+
+.heroSub {
+  font-size: 1rem;
+  color: var(--muted);
+  line-height: 1.7;
+  max-width: 560px;
+  margin: 0;
+}
+
+/* ── 2. Mission — two-column ── */
+.twoCol {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+  width: 100%;
+  max-width: 900px;
+}
+
+.missionCard {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  padding: 44px 36px;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 20px;
+  transition: border-color 0.25s, box-shadow 0.25s;
+}
+
+.missionCard:hover {
+  border-color: rgba(0,255,163,0.3);
+  box-shadow: 0 0 36px rgba(0,255,163,0.07);
+}
+
+/* ── 3. What We Do — four-column grid ── */
+.fourGrid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 20px;
+  width: 100%;
+  max-width: 1100px;
+}
+
+.serviceCard {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 14px;
+  padding: 36px 28px;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 20px;
+  transition: border-color 0.25s, box-shadow 0.25s, transform 0.25s;
+}
+
+.serviceCard:hover {
+  border-color: rgba(0,255,163,0.3);
+  box-shadow: 0 0 36px rgba(0,255,163,0.07);
+  transform: translateY(-4px);
+}
+
+.serviceNum {
+  font-family: 'Syne', sans-serif;
+  font-size: 1.4rem;
+  font-weight: 800;
+  color: var(--accent);
+  opacity: 0.3;
+  line-height: 1;
+}
+
+/* ── 4. How It Works — steps row ── */
+.stepsRow {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 0;
+  width: 100%;
+  max-width: 1100px;
+}
+
+.stepCard {
+  flex: 1;
+  min-width: 180px;
+  max-width: 220px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 14px;
+  padding: 36px 20px;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 20px;
+  text-align: center;
+  transition: border-color 0.25s, box-shadow 0.25s;
+}
+
+.stepCard:hover {
+  border-color: rgba(0,255,163,0.35);
+  box-shadow: 0 0 32px rgba(0,255,163,0.1);
+}
+
+.stepNum {
+  font-family: 'Syne', sans-serif;
+  font-size: 2rem;
+  font-weight: 800;
+  color: var(--accent);
+  opacity: 0.25;
+  line-height: 1;
+}
+
+.stepArrow {
+  font-size: 1.6rem;
+  color: var(--accent);
+  opacity: 0.4;
+  padding: 0 12px;
+  flex-shrink: 0;
+}
+
+/* ── 5. Why Choose Us — three-column grid ── */
+.threeGrid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+  width: 100%;
+  max-width: 1000px;
+}
+
+.whyCard {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  padding: 36px 28px;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 20px;
+  transition: border-color 0.25s, box-shadow 0.25s, transform 0.25s;
+}
+
+.whyCard:hover {
+  border-color: rgba(0,255,163,0.3);
+  box-shadow: 0 0 36px rgba(0,255,163,0.08);
+  transform: translateY(-4px);
+}
+
+.whyTag {
+  font-family: 'Syne', sans-serif;
+  font-size: 0.65rem;
+  font-weight: 800;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--accent);
+  opacity: 0.5;
+}
+
+/* ── 6. Environmental Impact — two-column split ── */
+.impactSection {
+  background: var(--surface);
+  border-top: 1px solid var(--border);
+  padding: 100px 24px;
+}
+
+.impactInner {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 64px;
+  align-items: center;
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+.impactCopy {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.impactCopy .eyebrow { text-align: left; }
+
+.impactCopy .sectionTitle { text-align: left; }
+
+.impactDesc {
+  font-size: 0.9rem;
+  color: var(--muted);
+  line-height: 1.75;
+  margin: 0;
+}
+
+.impactCommitments {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.commitCard {
+  padding: 28px 32px;
+  background: var(--bg);
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  transition: border-color 0.25s;
+}
+
+.commitCard:hover {
+  border-color: rgba(0,255,163,0.3);
+}
+
+.commitTitle {
+  font-family: 'Syne', sans-serif;
+  font-size: 0.95rem;
+  font-weight: 700;
+  color: var(--text);
+}
+
+.commitDesc {
+  font-size: 0.83rem;
+  color: var(--muted);
+  line-height: 1.65;
+}
+
+/* ── 7. Values — four-column grid ── */
+.valueCard {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 14px;
+  padding: 40px 24px;
+  background: var(--bg);
+  border: 1px solid var(--border);
+  border-radius: 20px;
+  text-align: center;
+  transition: border-color 0.25s, box-shadow 0.25s, transform 0.25s;
+}
+
+.valueCard:hover {
+  border-color: rgba(0,255,163,0.35);
+  box-shadow: 0 0 36px rgba(0,255,163,0.08);
+  transform: translateY(-4px);
+}
+
+.valueNum {
+  font-family: 'Syne', sans-serif;
+  font-size: 1.4rem;
+  font-weight: 800;
+  color: var(--accent);
+  opacity: 0.3;
+  line-height: 1;
+}
+
+/* ── 8. CTA ── */
+.ctaSection {
+  background: var(--bg);
+  border-top: 1px solid var(--border);
+  padding: 120px 24px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 24px;
+  text-align: center;
+  position: relative;
+}
+
+.ctaSection::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(ellipse 70% 60% at 50% 50%, rgba(0,255,163,0.05) 0%, transparent 70%);
+  pointer-events: none;
+}
+
+.ctaTitle {
+  font-family: 'Syne', sans-serif;
+  font-size: clamp(2rem, 5vw, 4rem);
+  font-weight: 800;
+  letter-spacing: -0.03em;
+  color: var(--text);
+  line-height: 1.05;
+  margin: 0;
+  position: relative;
+  z-index: 1;
+}
+
+.ctaTitle em {
+  color: var(--accent);
+  font-style: normal;
+}
+
+.ctaSub {
+  font-size: 1rem;
+  color: var(--muted);
+  max-width: 420px;
+  line-height: 1.7;
+  margin: 0;
+  position: relative;
+  z-index: 1;
+}
+
+.ctaBtns {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  flex-wrap: wrap;
+  justify-content: center;
+  position: relative;
+  z-index: 1;
+}
+
+.ctaBtnPrimary {
+  padding: 14px 36px;
+  background: var(--accent);
+  color: #050a06;
+  font-family: 'Syne', sans-serif;
+  font-weight: 700;
+  font-size: 0.85rem;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  border: none;
+  border-radius: 100px;
+  cursor: pointer;
+  text-decoration: none;
+  box-shadow: 0 0 32px rgba(0,255,163,0.35);
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.ctaBtnPrimary:hover {
+  transform: scale(1.04);
+  box-shadow: 0 0 48px rgba(0,255,163,0.55);
+}
+
+.ctaBtnSecondary {
+  padding: 14px 36px;
+  background: transparent;
+  color: var(--text);
+  font-family: 'Syne', sans-serif;
+  font-weight: 700;
+  font-size: 0.85rem;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  border: 1px solid rgba(255,255,255,0.12);
+  border-radius: 100px;
+  cursor: pointer;
+  text-decoration: none;
+  transition: border-color 0.2s, color 0.2s;
+}
+
+.ctaBtnSecondary:hover {
+  border-color: rgba(0,255,163,0.4);
+  color: var(--accent);
+}
+
+/* ── Scroll-in animations ── */
+.animSlideUp    { opacity: 0; transform: translateY(36px);  transition: opacity 0.65s ease-out, transform 0.65s ease-out; }
+.animSlideLeft  { opacity: 0; transform: translateX(-48px); transition: opacity 0.65s ease-out, transform 0.65s ease-out; }
+.animSlideRight { opacity: 0; transform: translateX(48px);  transition: opacity 0.65s ease-out, transform 0.65s ease-out; }
+
+.animSlideUp:global(.visible),
+.animSlideLeft:global(.visible),
+.animSlideRight:global(.visible) {
+  opacity: 1;
+  transform: none;
+}
+
+.delay1 { transition-delay: 0.1s; }
+.delay2 { transition-delay: 0.2s; }
+.delay3 { transition-delay: 0.3s; }
+
+/* ── Responsive ── */
+@media (max-width: 1024px) {
+  .fourGrid { grid-template-columns: repeat(2, 1fr); }
+  .threeGrid { grid-template-columns: repeat(2, 1fr); }
+  .impactInner { grid-template-columns: 1fr; gap: 48px; }
+  .impactCopy .sectionTitle { text-align: center; }
+  .impactCopy .eyebrow { text-align: center; }
+  .impactCopy { align-items: center; text-align: center; }
+}
+
+@media (max-width: 768px) {
+  .twoCol { grid-template-columns: 1fr; }
+  .threeGrid { grid-template-columns: 1fr; }
+  .stepsRow { flex-direction: column; align-items: center; }
+  .stepArrow { transform: rotate(90deg); padding: 4px 0; }
+  .stepCard { max-width: 100%; width: 100%; }
+  .heroStats { flex-direction: column; }
+  .heroStatDiv { width: 60px; height: 1px; }
+}
+
+@media (max-width: 560px) {
+  .fourGrid { grid-template-columns: 1fr; }
+  .impactStats { grid-template-columns: 1fr; }
+  .ctaBtns { flex-direction: column; width: 100%; }
+  .ctaBtnPrimary, .ctaBtnSecondary { width: 100%; text-align: center; }
+}
