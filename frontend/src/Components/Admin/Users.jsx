@@ -1,7 +1,7 @@
 import { useState,useEffect } from 'react'
 import Nav from './Nav'
 import styles from '../../css/admin/dashboard.module.css'
-import u from '../../css/admin/adminUsers.module.css'
+import u from '../../css/admin/Users.module.css'
 import axios from 'axios'
 
 const STATUS_CFG = {
@@ -153,6 +153,7 @@ export default function AdminUsers() {
                     <th className={styles.th}>Name</th>
                     <th className={styles.th}>Email</th>
                     <th className={styles.th}>Phone</th>
+                    <th className={styles.th}>Role</th>
                     <th className={styles.th}>Total Sold</th>
                     <th className={styles.th}>Actions</th>
                   </tr>
@@ -171,6 +172,7 @@ export default function AdminUsers() {
                           </td>
                           <td className={styles.tdMuted}>{usr.Email}</td>
                           <td className={styles.tdMuted}>{usr.Phone}</td>
+                          <td className={styles.tdMuted}>{usr.Role}</td>
                           <td className={styles.tdAccent}>{usr.soldItems}</td>
                         
                           <td className={styles.td}>

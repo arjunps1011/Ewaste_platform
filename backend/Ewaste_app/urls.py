@@ -1,7 +1,7 @@
 from django.urls import path
 from .views.Auth import views_Auth
 from .views.User import views_Sell
-from .views.Admin import views_Reports, views_SellRequest, views_Employee, views_Designation, views_Role
+from .views.Admin import views_User, views_SellRequest, views_Employee, views_Designation, views_Role
 
 urlpatterns = [
     # -------Auth---------
@@ -42,8 +42,8 @@ urlpatterns = [
     # path('api/update_sell_product_status/<int:id>/', views.upated_sell_product_status),
 
     # ---------Admin--------------
-    path('Admin/UsersReports/',views_Reports.UsersReports),
-    path('Admin/UserCreate/', views_Reports.UserCreate),
+    path('Admin/UsersReports/',views_User.UsersReports),
+    path('Admin/UserCreate/', views_User.UserCreate),
     # ---------Admin--------------
 
     # path('api/get_delivered_Ewaste/', views.get_delivered_Ewaste),
