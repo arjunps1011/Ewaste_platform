@@ -1,0 +1,6 @@
+gsap@^3.14.2
+react@^19.2.4
+react-dom@^19.2.4
+react-router-dom
+vite@^8.0.1
+@vitejs/plugin-react@^6.0.1

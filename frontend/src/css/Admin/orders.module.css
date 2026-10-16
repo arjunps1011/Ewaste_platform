@@ -1,0 +1,287 @@
+/* orders.module.css */
+
+.summaryGrid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 14px;
+}
+
+.summaryCard { min-height: 80px; }
+
+/* ── Filters ── */
+.filtersWrap {
+  display: flex;
+  gap: 24px;
+  flex-wrap: wrap;
+  background: #0e1520;
+  border: 1px solid rgba(255,255,255,0.06);
+  border-radius: 14px;
+  padding: 16px 20px;
+}
+
+.filterGroup {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.filterLabel {
+  font-size: 0.62rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: #3a5050;
+  font-weight: 700;
+}
+
+.filterRow {
+  display: flex;
+  gap: 6px;
+  flex-wrap: wrap;
+}
+
+.filterBtn {
+  padding: 5px 14px;
+  border-radius: 100px;
+  border: 1px solid rgba(255,255,255,0.07);
+  background: none;
+  color: #5a7070;
+  font-family: inherit;
+  font-size: 0.75rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.2s;
+  white-space: nowrap;
+}
+
+.filterBtn:hover { color: #e8f0ef; border-color: rgba(255,255,255,0.15); }
+
+.filterActive {
+  color: #00ffa3 !important;
+  background: rgba(0,255,163,0.08) !important;
+  border-color: rgba(0,255,163,0.25) !important;
+}
+
+/* ── Table ── */
+.tableWrap { overflow-x: auto; }
+
+.viewBtn {
+  padding: 5px 14px;
+  border-radius: 8px;
+  border: 1px solid rgba(0,200,255,0.25);
+  background: rgba(0,200,255,0.06);
+  color: #00c8ff;
+  font-family: inherit;
+  font-size: 0.75rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s;
+  white-space: nowrap;
+}
+
+.viewBtn:hover { background: rgba(0,200,255,0.12); border-color: rgba(0,200,255,0.4); }
+
+.emptyCell {
+  text-align: center;
+  padding: 40px;
+  color: #3a5050;
+  font-size: 0.85rem;
+}
+
+/* ── Modal ── */
+.overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.7);
+  backdrop-filter: blur(4px);
+  z-index: 100;
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  padding: 32px 16px;
+  overflow-y: auto;
+}
+
+.modal {
+  background: #0a0f16;
+  border: 1px solid rgba(255,255,255,0.08);
+  border-radius: 20px;
+  width: 100%;
+  max-width: 960px;
+  overflow: hidden;
+}
+
+.modalHeader {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 24px 28px 20px;
+  border-bottom: 1px solid rgba(255,255,255,0.06);
+}
+
+.modalTitle {
+  font-size: 1.15rem;
+  font-weight: 800;
+  color: #e8f0ef;
+  margin: 0 0 4px;
+  letter-spacing: -0.02em;
+}
+
+.modalId {
+  font-size: 0.72rem;
+  color: #5a7070;
+  font-family: monospace;
+}
+
+.closeBtn {
+  width: 34px;
+  height: 34px;
+  border-radius: 10px;
+  border: 1px solid rgba(255,255,255,0.07);
+  background: rgba(255,255,255,0.03);
+  color: #5a7070;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.2s;
+  flex-shrink: 0;
+}
+
+.closeBtn:hover { color: #e8f0ef; background: rgba(255,255,255,0.07); }
+
+/* ── Status flow ── */
+.flowWrap {
+  display: flex;
+  align-items: flex-start;
+  padding: 20px 28px;
+  border-bottom: 1px solid rgba(255,255,255,0.06);
+  overflow-x: auto;
+}
+
+.flowStep {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: relative;
+  flex: 1;
+  min-width: 80px;
+}
+
+.flowDot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: #1e2a2a;
+  border: 2px solid #2a3a3a;
+  z-index: 1;
+  flex-shrink: 0;
+}
+
+.flowDone   { background: #00ffa3; border-color: #00ffa3; }
+.flowActive { background: #00c8ff; border-color: #00c8ff; box-shadow: 0 0 8px rgba(0,200,255,0.5); }
+
+.flowLabel {
+  font-size: 0.62rem;
+  color: #3a5050;
+  text-align: center;
+  margin-top: 6px;
+  white-space: nowrap;
+}
+
+.flowLabelActive { color: #00c8ff; font-weight: 700; }
+
+.flowLine {
+  position: absolute;
+  top: 4px;
+  left: 50%;
+  width: 100%;
+  height: 2px;
+  background: #1e2a2a;
+  z-index: 0;
+}
+
+.flowLineDone { background: #00ffa3; }
+
+/* ── Modal body ── */
+.modalBody {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+}
+
+.modalCol {
+  padding: 24px 28px;
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.modalCol:first-child { border-right: 1px solid rgba(255,255,255,0.06); }
+
+.section { display: flex; flex-direction: column; gap: 12px; }
+
+.sectionTitle {
+  font-size: 0.65rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: #3a5050;
+  margin: 0;
+  font-weight: 700;
+}
+
+.infoGrid {
+  display: grid;
+  grid-template-columns: 110px 1fr;
+  gap: 8px 12px;
+  align-items: start;
+}
+
+.infoKey { font-size: 0.75rem; color: #5a7070; padding-top: 1px; }
+.infoVal { font-size: 0.82rem; color: #e8f0ef; line-height: 1.5; }
+
+/* ── Action buttons ── */
+.actionStack { display: flex; flex-direction: column; gap: 8px; }
+
+.actionBtn {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 9px 16px;
+  border-radius: 10px;
+  border: 1px solid transparent;
+  font-family: inherit;
+  font-size: 0.8rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s;
+  width: 100%;
+  justify-content: center;
+}
+
+.actionShip    { background: rgba(0,200,255,0.08);   border-color: rgba(0,200,255,0.25);   color: #00c8ff; }
+.actionShip:hover    { background: rgba(0,200,255,0.15); }
+
+.actionDeliver { background: rgba(0,255,163,0.08);   border-color: rgba(0,255,163,0.25);   color: #00ffa3; }
+.actionDeliver:hover { background: rgba(0,255,163,0.15); }
+
+.actionPayment { background: rgba(167,139,250,0.08); border-color: rgba(167,139,250,0.25); color: #a78bfa; }
+.actionPayment:hover { background: rgba(167,139,250,0.15); }
+
+.actionInvoice { background: rgba(245,158,11,0.08);  border-color: rgba(245,158,11,0.25);  color: #f59e0b; }
+.actionInvoice:hover { background: rgba(245,158,11,0.15); }
+
+.actionCancel  { background: rgba(244,114,182,0.08); border-color: rgba(244,114,182,0.25); color: #f472b6; }
+.actionCancel:hover  { background: rgba(244,114,182,0.15); }
+
+/* ── Responsive ── */
+@media (max-width: 900px) {
+  .modalBody { grid-template-columns: 1fr; }
+  .modalCol:first-child { border-right: none; border-bottom: 1px solid rgba(255,255,255,0.06); }
+  .summaryGrid { grid-template-columns: repeat(2, 1fr); }
+  .filtersWrap { flex-direction: column; gap: 16px; }
+}
+
+@media (max-width: 600px) {
+  .summaryGrid { grid-template-columns: repeat(2, 1fr); }
+  .modalHeader { padding: 18px; }
+  .modalCol { padding: 18px; }
+}
